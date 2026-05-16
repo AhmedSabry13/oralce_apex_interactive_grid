@@ -5,7 +5,7 @@ var model = grid.model;// MODEL , YOU CAN LOOP ON THIS TO LOOP ON ALL APPEAR ROW
 var changes = model.getChanges();//GET THE CHANGES ONLY TO AIM TO NEEDED DATA ONLY
 var columns = grid.view$.grid("getColumns");// GET ALL IG COLUMN TO MAKE IT GENERAL ONLY
 var data = [];
-changes.forEach(function(chg){// LOOP ON CHANGED ROW (ADD UPDATED DELETE)
+changes.forEach(function(chg){// LOOP ON CHANGED ROW (ADD"INSERT", UPDATE AND DELETE)
     var record = chg.record;
     var fields = chg.fields;
     var action = "U";//UPDATE
