@@ -12,7 +12,7 @@ FROM JSON_TABLE(
         C3   NUMBER PATH '$.C3'
     )
 ) jt
-order by invoice_id
+order by C1
 BEGIN
     l_clob := apex_application.g_clob_01;
     -- just test receive
