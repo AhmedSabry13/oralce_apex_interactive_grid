@@ -1,0 +1,24 @@
+function(config){
+
+    var IGV = "tesat";
+
+    config.initActions = function(actions){
+
+        // =========================
+        // OVERRIDE SAVE ACTION
+        // =========================
+
+        var saveAction = actions.lookup("save");
+
+        saveAction.action = function(event, focusElement){
+
+
+            customSaveLogic();
+
+        };
+
+    };
+
+
+    return config;
+}
