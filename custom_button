@@ -1,0 +1,51 @@
+function(config){
+
+    const toolbarData = $.apex.interactiveGrid.copyDefaultToolbar();
+    let toolbarGroupExpand = toolbarData.toolbarFind("actions3");
+
+    // SAVE BUTTON
+    toolbarGroupExpand.controls.push({
+        type: "BUTTON",
+        action: "customSaveLogic",
+        label: "Save",
+        id: "btn-save",
+        iconBeforeLabel: true,
+        hot: true
+    });
+let toolbarGroupExpand2 = toolbarData.toolbarFind("actions4");
+    // NEW BLUE BUTTON
+    toolbarGroupExpand2.controls.push({
+        type: "BUTTON",
+        action: "customBlueButton",
+        label: "Deploy",
+        id: "btn-deploy",
+        icon: "fa fa-rocket",
+        iconBeforeLabel: true,
+        hot: true // BLUE BUTTON
+    });
+
+    config.initActions = function(actions) {
+
+        actions.add([
+            {
+                name: "customSaveLogic",
+                action: function(event, focusElement) {
+                    customSaveLogic();
+                }
+            },
+            {
+                name: "customBlueButton",
+                action: function(event, focusElement) {
+
+                    apex.message.alert("Deploy Clicked");
+
+                }
+            }
+        ]);
+
+    };
+
+    config.toolbarData = toolbarData;
+
+    return config;
+}
